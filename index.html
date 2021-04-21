@@ -31,16 +31,17 @@
             <section class="slider">
 
                 <!-- Arrow-left -->
-                <div class="prev">
+                <div class="prev" @click="prevImg">
                     <i class="fas fa-chevron-left"></i>
                 </div>
 
                 <!-- Images Slider -->
                 <div class="images">
-                    <img src="./img/image1.jpg" alt="Nature-Img">
+                    <img :src="images[indexImages]" alt="Nature-Img">
                 </div>
+
                 <!-- Arrow-right -->
-                <div class="next">
+                <div class="next" @click="nextImg">
                     <i class="fas fa-chevron-right"></i>
                 </div>
 
