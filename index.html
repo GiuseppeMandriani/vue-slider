@@ -28,7 +28,9 @@
         <main>
 
             <!-- SLIDER -->
-            <section class="slider">
+            <section class="slider"
+                    @mouseenter="stopLoop"
+                    @mouseleave="startLoop">
 
                 <!-- Arrow-left -->
                 <div class="prev" @click="prevImg">

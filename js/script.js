@@ -17,6 +17,12 @@ const app = new Vue({
 
         indexImages: 0,             // Posizione indice attuale nell'array
 
+        intervalId: 0,              //Proprietà per setInterval
+
+    },
+
+    created(){                  // MEtodo scatenato da solo, in un momento di vita dell'appilcazine
+        this.startLoop()                                // Creato quando viene generata l'istanza Vue
 
     },
 
@@ -64,6 +70,19 @@ const app = new Vue({
             // console.log(index)
             this.indexImages = index;
         },
+
+        // Funzione per far partire il loop
+        startLoop(){
+            this.intervalId = setInterval(() =>{
+                this.nextImg();
+            }, 2000);
+        }, 
+
+        // Funzione per fermare il startLoop
+        stopLoop(){
+            clearInterval(this.intervalId);  // La assegno quando entro con il mouse nello slider
+        }
+
 
         
 
