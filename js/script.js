@@ -21,6 +21,8 @@ const app = new Vue({
     },
 
     methods: {
+
+        // Next Img Functions
         nextImg(){
             // console.log('click');
             this.indexImages += 1;     // Aumento valore per cambiare img
@@ -39,6 +41,7 @@ const app = new Vue({
 
         },
 
+        // Prev Img Functions
         prevImg(){
             // console.log('click');
             this.indexImages -= 1;
@@ -54,8 +57,17 @@ const app = new Vue({
             // B) Operatore ternario
 
             this.indexImages = (this.indexImages < 0) ? this.indexImages = (this.images.length - 1) : this.indexImages --;
+        },
 
-        }
+        // setImg by nav Buttons
+        setImg(index){
+            // console.log(index)
+            this.indexImages = index;
+        },
+
+        
+
+
 
 
     }

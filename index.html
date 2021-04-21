@@ -47,10 +47,23 @@
 
                 <!-- Nav Buttons -->
                 <div class="nav">
-                    <i class="fas fa-circle active"></i>
+
+                    <!-- v-for per iterare nell'array delle immagini
+                    e recuperare l'indice di posizione, inoltre ottengo tanti pallini quante
+                    sono le img -->
+                    <i v-for="(image, index) in images" 
+                        class="fas fa-circle"
+                        :class="{ active: index == indexImages}"
+                        @click="setImg(index)"
+                        ></i>
+
+
+
+                    <!-- Per Strutturare CSS -->
+                    <!-- <i class="fas fa-circle active"></i>
                     <i class="fas fa-circle"></i>
                     <i class="fas fa-circle"></i>
-                    <i class="fas fa-circle"></i>
+                    <i class="fas fa-circle"></i> -->
 
                 </div>
 
