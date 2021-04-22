@@ -25,6 +25,11 @@ body{
     margin: 0 auto;
 }
 
+.slider:focus{
+    border: 3px solid red;
+    outline: none;
+}
+
 /* Images */
 
 .slider .images{

@@ -30,7 +30,12 @@
             <!-- SLIDER -->
             <section class="slider"
                     @mouseenter="stopLoop"
-                    @mouseleave="startLoop">
+                    @mouseleave="startLoop"
+                    tabindex = "0"
+                    ref = "slider"
+                    @keyup.left = "prevImg"
+                    @keyup.right = "nextImg"
+                    >
 
                 <!-- Arrow-left -->
                 <div class="prev" @click="prevImg">

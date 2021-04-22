@@ -21,7 +21,7 @@ const app = new Vue({
 
     },
 
-    created(){                  // MEtodo scatenato da solo, in un momento di vita dell'appilcazine
+    mounted(){                  // MEtodo scatenato da solo, in un momento di vita dell'appilcazine
         this.startLoop()                                // Creato quando viene generata l'istanza Vue
 
     },
@@ -31,7 +31,7 @@ const app = new Vue({
         // Next Img Functions
         nextImg(){
             // console.log('click');
-            this.indexImages += 1;     // Aumento valore per cambiare img
+            // this.indexImages += 1;     // Aumento valore per cambiare img
 
             // Condizione per tornare all'indice 0
 
@@ -43,14 +43,14 @@ const app = new Vue({
 
             // B) Operatore ternario
 
-            this.indexImages = (this.indexImages > (this.images.length - 1)) ? 0 : this.indexImages++;
+            this.indexImages = (this.indexImages == (this.images.length - 1)) ? 0 : this.indexImages + 1;
 
         },
 
         // Prev Img Functions
         prevImg(){
             // console.log('click');
-            this.indexImages -= 1;
+            // this.indexImages -= 1;
 
             // Condizione per tornare all'ultimo indice 0
 
@@ -62,7 +62,7 @@ const app = new Vue({
 
             // B) Operatore ternario
 
-            this.indexImages = (this.indexImages < 0) ? this.indexImages = (this.images.length - 1) : this.indexImages --;
+            this.indexImages = (this.indexImages == 0) ? this.indexImages = (this.images.length - 1) : this.indexImages - 1;
         },
 
         // setImg by nav Buttons
@@ -76,19 +76,21 @@ const app = new Vue({
             this.intervalId = setInterval(() =>{
                 this.nextImg();
             }, 2000);
+
+
+            // Tolgo il focus dallo slider
+            this.$refs.slider.blur();
+
         }, 
 
         // Funzione per fermare il startLoop
         stopLoop(){
             clearInterval(this.intervalId);  // La assegno quando entro con il mouse nello slider
+
+            // Creo referenza per entrare nello Slider e metterci il focus
+
+            this.$refs.slider.focus();
         }
-
-
-        
-
-
-
-
     }
 });
     
