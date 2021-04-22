@@ -77,13 +77,17 @@ const app = new Vue({
                 this.nextImg();
             }, 2000);
 
+            this.$refs.slider.blur();
+
+            
+
         }, 
 
         // Funzione per fermare il startLoop
         stopLoop(){
             clearInterval(this.intervalId);  // La assegno quando entro con il mouse nello slider
 
-    
+            this.$refs.slider.focus();
         }
     }
 });
